@@ -47,7 +47,10 @@ export default {
                 axios.post('user',qs.stringify(user))
                 .then(res=>{
                     console.log(res)
+                    this.$router.push({name:'loginLink'})
                 })
+            }else{
+                alert('两次密码不一致')
             }
         }
     }

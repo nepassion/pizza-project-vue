@@ -4,8 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import {routes} from './routes.js'
+import axios from 'axios'
 
 Vue.use(VueRouter)
+
+axios.defaults.baseURL='http://127.0.0.1:8087/'
+
 const router = new VueRouter({
   routes,
   mode: 'history'
@@ -13,12 +17,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 
-  if (to.path == '/login') {
-    next();
+  if (to.path === '/login') {
+    next()
   } else {
     // alert('not login Page');
     // next('/login');
-    next();
+    next()
   }
 })
 
